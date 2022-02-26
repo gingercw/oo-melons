@@ -1,5 +1,6 @@
 """Classes for melon orders."""
 
+import random
 
 class AbstractMelonOrder:
     order_type = None
@@ -11,11 +12,16 @@ class AbstractMelonOrder:
         self.qty = qty 
         self.shipped = False
 
+    def get_base_price(self):
+        return random.randint(5,9)
+
 
     def get_total(self):
         """Calculate price, including tax."""
         
-        base_price = 5
+        # base_price = 5
+
+        base_price = float(self.get_base_price())
         
         if self.species=="Christmas melon":
             base_price= base_price*1.5
@@ -30,6 +36,7 @@ class AbstractMelonOrder:
         """Record the fact than an order has been shipped."""
 
         self.shipped = True
+
 
 
 class DomesticMelonOrder(AbstractMelonOrder):
@@ -71,9 +78,9 @@ class GovernmentMelonOrder(AbstractMelonOrder):
         self.passed_inspection = True    
         return self.passed_inspection
 
-# order0 = GovernmentMelonOrder("Christmas melon", 1)
-# print(order0.get_total())
-# print(order0.mark_inspection())
+order0 = GovernmentMelonOrder("Christmas melon", 1)
+print(order0.get_total())
+print(order0.mark_inspection())
 
 
 
