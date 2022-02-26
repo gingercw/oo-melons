@@ -71,9 +71,9 @@ class GovernmentMelonOrder(AbstractMelonOrder):
         self.passed_inspection = True    
         return self.passed_inspection
 
-order0 = GovernmentMelonOrder("Christmas melon", 1)
-print(order0.get_total())
-print(order0.mark_inspection())
+# order0 = GovernmentMelonOrder("Christmas melon", 1)
+# print(order0.get_total())
+# print(order0.mark_inspection())
 
 
 
